@@ -1,4 +1,0 @@
-build:
-  web: exit 0;
-run:
-  web: npm run server
