@@ -22,7 +22,6 @@ COPY package*.json ./
 COPY tsconfig.json ./
 COPY src src
 COPY *.ts .
-COPY *.tsx .
 
 RUN npm i
 

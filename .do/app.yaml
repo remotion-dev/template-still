@@ -1,9 +1,0 @@
-name: remotion-still
-services:
-  - environment_slug: node-js
-    github:
-      branch: main
-      deploy_on_push: true
-      repo: remotion-dev/template-still
-    name: remotion-still
-    run_command: npm run server
