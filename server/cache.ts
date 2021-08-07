@@ -2,7 +2,7 @@ import fs, {createReadStream} from 'fs';
 import os from 'os';
 import path from 'path';
 import {Readable} from 'stream';
-import {getCacheMode} from './config';
+import {CACHE_MODE} from './config';
 import {existsOnS3, getOnS3, writeToS3} from './s3-cache';
 
 const cacheDir = fs.promises.mkdtemp(path.join(os.tmpdir(), 'remotion-'));
@@ -11,13 +11,11 @@ const getFileFromHash = async (imageHash: string) => {
 	return path.join(await cacheDir, imageHash);
 };
 
-const cacheMode = getCacheMode();
-
 export const isInCache = async (imageHash: string): Promise<boolean> => {
-	if (cacheMode === 'none') {
+	if (CACHE_MODE === 'none') {
 		return false;
 	}
-	if (cacheMode === 's3-bucket') {
+	if (CACHE_MODE === 's3-bucket') {
 		return existsOnS3(imageHash);
 	}
 
@@ -25,11 +23,11 @@ export const isInCache = async (imageHash: string): Promise<boolean> => {
 };
 
 export const getFromCache = async (imageHash: string): Promise<Readable> => {
-	if (cacheMode === 'none') {
+	if (CACHE_MODE === 'none') {
 		throw new TypeError('No cache enabled');
 	}
 
-	if (cacheMode === 's3-bucket') {
+	if (CACHE_MODE === 's3-bucket') {
 		return getOnS3(imageHash);
 	}
 
@@ -37,11 +35,11 @@ export const getFromCache = async (imageHash: string): Promise<Readable> => {
 };
 
 export const saveToCache = async (imageHash: string, file: Readable) => {
-	if (cacheMode === 'none') {
+	if (CACHE_MODE === 'none') {
 		return;
 	}
 
-	if (cacheMode === 's3-bucket') {
+	if (CACHE_MODE === 's3-bucket') {
 		return writeToS3(imageHash, file);
 	}
 

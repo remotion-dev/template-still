@@ -1,12 +1,12 @@
 import {Still} from 'remotion';
-import {StillImage} from './HelloWorld';
+import {PreviewCard} from './PreviewCard';
 
 export const RemotionVideo: React.FC = () => {
 	return (
 		<>
 			<Still
 				id="PreviewCard"
-				component={StillImage}
+				component={PreviewCard}
 				width={1200}
 				height={627}
 				defaultProps={{

@@ -9,8 +9,7 @@ const absContainer: React.CSSProperties = {
 const container: React.CSSProperties = {
 	flex: 1,
 	padding: 100,
-	fontFamily:
-		"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+	fontFamily: '-apple-system, Arial, Liberation',
 };
 
 const titleStyle: React.CSSProperties = {
@@ -21,7 +20,7 @@ const titleStyle: React.CSSProperties = {
 };
 
 const descriptionStyle: React.CSSProperties = {
-	color: '#e1edf7',
+	color: '#61778a',
 	fontSize: '3.2em',
 	margin: 0,
 	marginTop: 20,
@@ -38,8 +37,7 @@ const gradientText: React.CSSProperties = {
 	background: 'linear-gradient(to right, black, #666)',
 	WebkitBackgroundClip: 'text',
 	WebkitTextFillColor: 'transparent',
-	fontFamily:
-		"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+	fontFamily: '-apple-system, Arial, Liberation',
 };
 
 const sloganStyle: React.CSSProperties = {
@@ -53,7 +51,7 @@ const sloganStyle: React.CSSProperties = {
 	whiteSpace: 'pre',
 };
 
-export const StillImage: React.FC<{
+export const PreviewCard: React.FC<{
 	title: string;
 	description: string;
 	slogan: string;
