@@ -7,7 +7,7 @@ export const handler = (
 		try {
 			await fn(request, response);
 		} catch (err) {
-			console.log(err);
+			console.log(err.stack);
 			const statusCode = err.status || 500;
 			response.status(statusCode).json({
 				success: false,

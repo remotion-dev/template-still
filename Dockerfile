@@ -12,7 +12,6 @@ RUN apk add --no-cache \
   harfbuzz \
   ca-certificates \
   ttf-freefont \
-  ffmpeg \
   font-noto-emoji
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.

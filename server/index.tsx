@@ -1,5 +1,6 @@
 import {bundle} from '@remotion/bundler';
 import {getCompositions, renderStill} from '@remotion/renderer';
+import dotenv from 'dotenv';
 import express from 'express';
 import fs from 'fs';
 import os from 'os';
@@ -8,6 +9,8 @@ import {getFromCache, isInCache, saveToCache} from './cache';
 import {handler} from './handler';
 import {getImageType, getMimeType} from './image-types';
 import {getImageHash} from './make-hash';
+
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -64,14 +67,18 @@ app.get(
 			imageFormat,
 		});
 
+		await new Promise<void>((resolve, reject) => {
+			fs.createReadStream(output)
+				.pipe(res)
+				.on('close', () => {
+					res.end();
+					resolve();
+				})
+				.on('error', (err) => {
+					reject(err);
+				});
+		});
 		await saveToCache(hash, fs.createReadStream(output));
-
-		fs.createReadStream(output)
-			.pipe(res)
-			.on('close', () => {
-				res.end();
-			});
-
 		await fs.promises.unlink(output);
 	})
 );

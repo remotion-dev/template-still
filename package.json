@@ -12,6 +12,7 @@
 	"repository": {},
 	"license": "UNLICENSED",
 	"dependencies": {
+		"@aws-sdk/client-s3": "^3.25.0",
 		"@remotion/bundler": "2.3.0-alpha.8922e6c7",
 		"@remotion/cli": "2.3.0-alpha.8922e6c7",
 		"@remotion/eslint-config": "2.3.0-alpha.8922e6c7",
@@ -19,6 +20,7 @@
 		"@types/express": "^4.17.9",
 		"@types/react": "^17.0.0",
 		"@types/styled-components": "^5.1.12",
+		"dotenv": "^10.0.0",
 		"eslint": "^7.15.0",
 		"express": "^4.17.1",
 		"prettier": "2.2.1",
