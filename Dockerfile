@@ -21,6 +21,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 COPY package*.json ./
 COPY tsconfig.json ./
 COPY src src
+COPY server server
 COPY *.ts .
 
 RUN npm i
