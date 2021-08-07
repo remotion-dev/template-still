@@ -1,6 +1,5 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
-import styled from 'styled-components';
 import {Swirl} from './Swirl';
 
 const absContainer: React.CSSProperties = {
@@ -21,20 +20,19 @@ const titleStyle: React.CSSProperties = {
 	marginBottom: 0,
 };
 
-const Description = styled.p`
-	color: #61778a;
-	font-size: 3.2em;
-	margin: 0;
-	margin-top: 20px;
-	line-height: 1.3;
-	font-weight: 500;
-	max-width: 90%;
-	max-lines: 2;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	line-clamp: 2;
-	box-orient: vertical;
-`;
+const descriptionStyle: React.CSSProperties = {
+	color: '#e1edf7',
+	fontSize: '3.2em',
+	margin: 0,
+	marginTop: 20,
+	lineHeight: 1.3,
+	fontWeight: 500,
+	maxWidth: '90%',
+	maxLines: 2,
+	overflow: 'hidden',
+	textOverflow: 'ellipsis',
+	lineClamp: 2,
+};
 
 const gradientText: React.CSSProperties = {
 	background: 'linear-gradient(to right, black, #666)',
@@ -67,7 +65,7 @@ export const StillImage: React.FC<{
 					<div style={titleStyle}>
 						<span style={gradientText}>{title}</span>
 					</div>
-					<Description>{description}</Description>
+					<p style={descriptionStyle}>{description}</p>
 					<div style={sloganStyle}>{slogan}</div>
 				</div>
 			</AbsoluteFill>
