@@ -3,7 +3,7 @@ import os from 'os';
 import path from 'path';
 import {Readable} from 'stream';
 import {CACHE_MODE} from './config';
-import {existsOnS3, getOnS3, writeToS3} from './s3-cache';
+import {existsOnS3, getOnS3, writeToS3} from './s3';
 
 const cacheDir = fs.promises.mkdtemp(path.join(os.tmpdir(), 'remotion-'));
 
