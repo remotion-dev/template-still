@@ -1,51 +1,19 @@
-import {Composition} from 'remotion';
-import {HelloWorld} from './HelloWorld';
-import {Logo} from './HelloWorld/Logo';
-import {Subtitle} from './HelloWorld/Subtitle';
-import {Title} from './HelloWorld/Title';
+import {Still} from 'remotion';
+import {StillImage} from './HelloWorld';
 
 export const RemotionVideo: React.FC = () => {
 	return (
 		<>
-			<Composition
-				id="HelloWorld"
-				component={HelloWorld}
-				durationInFrames={150}
-				fps={30}
-				width={1920}
-				height={1080}
+			<Still
+				id="PreviewCard"
+				component={StillImage}
+				width={1200}
+				height={627}
 				defaultProps={{
-					titleText: 'Welcome to Remotion',
-					titleColor: 'black',
+					title: 'Welcome to Remotion',
+					description: 'Edit Video.tsx to change template',
+					slogan: 'Write videos\nin React',
 				}}
-			/>
-			<Composition
-				id="Logo"
-				component={Logo}
-				durationInFrames={200}
-				fps={30}
-				width={1920}
-				height={1080}
-			/>
-			<Composition
-				id="Title"
-				component={Title}
-				durationInFrames={100}
-				fps={30}
-				width={1920}
-				height={1080}
-				defaultProps={{
-					titleText: 'Welcome to Remotion',
-					titleColor: 'black',
-				}}
-			/>
-			<Composition
-				id="Subtitle"
-				component={Subtitle}
-				durationInFrames={100}
-				fps={30}
-				width={1920}
-				height={1080}
 			/>
 		</>
 	);
