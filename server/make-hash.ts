@@ -1,5 +1,5 @@
 import crypto from 'crypto';
 
-export const getServeUrlHash = (url: string): string => {
-	return crypto.createHash('md5').update(url).digest('hex');
+export const getImageHash = (obj: unknown): string => {
+	return crypto.createHash('md5').update(JSON.stringify(obj)).digest('hex');
 };

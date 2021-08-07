@@ -4,15 +4,15 @@ import express from 'express';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
+import {getFromCache, isInCache, saveToCache} from './cache';
 import {handler} from './handler';
 import {getImageType, getMimeType} from './image-types';
-import {getServeUrlHash} from './make-hash';
+import {getImageHash} from './make-hash';
 
 const app = express();
 const port = process.env.PORT || 8000;
 
 const webpackBundle = bundle(path.join(__dirname, '../src/index.tsx'));
-
 const tmpDir = fs.promises.mkdtemp(path.join(os.tmpdir(), 'remotion-'));
 
 enum Params {
@@ -20,42 +20,59 @@ enum Params {
 	format,
 }
 
+const getComp = async (compName: string, inputProps: unknown) => {
+	const comps = await getCompositions(await webpackBundle, {
+		inputProps: inputProps as null,
+	});
+
+	const comp = comps.find((c) => c.id === compName);
+	if (!comp) {
+		throw new Error(`No composition called ${compName}`);
+	}
+
+	return comp;
+};
+
 app.get(
-	`/:${Params.compositionname}.:${Params.format}`,
+	`/:${Params.compositionname}.:${Params.format}(png|jpeg|jpg)`,
 	handler(async (req, res) => {
 		const inputProps = req.query;
 		const compName = req.params[Params.compositionname];
 		const imageFormat = getImageType(req.params[Params.format]);
-		const sendFile = (file: string) => {
-			fs.createReadStream(file)
-				.pipe(res)
-				.on('close', () => {
-					res.end();
-				});
-		};
-		const comps = await getCompositions(await webpackBundle, {inputProps});
-		const video = comps.find((c) => c.id === compName);
-		if (!video) {
-			throw new Error(`No video called ${compName}`);
-		}
-		res.set('content-type', getMimeType(imageFormat));
 
-		const hash = getServeUrlHash(
+		const hash = getImageHash(
 			JSON.stringify({
 				compName,
 				imageFormat,
 				inputProps,
 			})
 		);
+		res.set('content-type', getMimeType(imageFormat));
+
+		if (await isInCache(hash)) {
+			const file = await getFromCache(hash);
+			file.pipe(res).on('close', () => res.end());
+			return;
+		}
+
 		const output = path.join(await tmpDir, hash);
 		await renderStill({
-			composition: video,
+			composition: await getComp(compName, inputProps),
 			webpackBundle: await webpackBundle,
 			output,
 			inputProps,
 			imageFormat,
 		});
-		sendFile(output);
+
+		await saveToCache(hash, fs.createReadStream(output));
+
+		fs.createReadStream(output)
+			.pipe(res)
+			.on('close', () => {
+				res.end();
+			});
+
+		await fs.promises.unlink(output);
 	})
 );
 
