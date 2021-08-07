@@ -9,6 +9,7 @@ import {getFromCache, isInCache, saveToCache} from './cache';
 import {handler} from './handler';
 import {getImageType, getMimeType} from './image-types';
 import {getImageHash} from './make-hash';
+import {sendFile} from './send-file';
 
 dotenv.config();
 
@@ -37,11 +38,13 @@ const getComp = async (compName: string, inputProps: unknown) => {
 };
 
 app.get(
-	`/:${Params.compositionname}.:${Params.format}(png|jpeg|jpg)`,
+	`/:${Params.compositionname}.:${Params.format}(png|jpe?g)`,
 	handler(async (req, res) => {
 		const inputProps = req.query;
 		const compName = req.params[Params.compositionname];
 		const imageFormat = getImageType(req.params[Params.format]);
+
+		res.set('content-type', getMimeType(imageFormat));
 
 		const hash = getImageHash(
 			JSON.stringify({
@@ -50,15 +53,14 @@ app.get(
 				inputProps,
 			})
 		);
-		res.set('content-type', getMimeType(imageFormat));
 
 		if (await isInCache(hash)) {
 			const file = await getFromCache(hash);
-			file.pipe(res).on('close', () => res.end());
-			return;
+			return sendFile(res, file);
 		}
 
 		const output = path.join(await tmpDir, hash);
+
 		await renderStill({
 			composition: await getComp(compName, inputProps),
 			webpackBundle: await webpackBundle,
@@ -67,17 +69,7 @@ app.get(
 			imageFormat,
 		});
 
-		await new Promise<void>((resolve, reject) => {
-			fs.createReadStream(output)
-				.pipe(res)
-				.on('close', () => {
-					res.end();
-					resolve();
-				})
-				.on('error', (err) => {
-					reject(err);
-				});
-		});
+		await sendFile(res, fs.createReadStream(output));
 		await saveToCache(hash, fs.createReadStream(output));
 		await fs.promises.unlink(output);
 	})
