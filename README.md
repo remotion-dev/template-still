@@ -22,19 +22,25 @@ npm run dev
 npm run render
 ```
 
-**Server render demo**
-
-```console
-npm run server
-```
-
-See [docs for server-side rendering](https://www.remotion.dev/docs/ssr) here.
-
 **Upgrade Remotion**
 
 ```console
 npm run upgrade
 ```
+
+## Server
+
+You can run a server that serves dynamic images based on it's URL. Run
+
+```console
+npm run server
+```
+
+And then visit `http://localhost:8000/PreviewCard.png?title=Hello+World` in your browser to render an image.
+
+### Deploy to Heroku
+
+You can deploy a server that
 
 ## Docs
 
