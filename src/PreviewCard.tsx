@@ -1,9 +1,9 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
+import './fonts.css';
 import {Swirl} from './Swirl';
 
-// Apple System on MacOS, Arial on Windows, Helvetica on Heroku, Liberation on Alpine
-const fontFamily = '-apple-system, Helvetica, Arial, Liberation, sans-serif';
+const fontFamily = 'Inter';
 
 const absContainer: React.CSSProperties = {
 	backgroundColor: 'white',
