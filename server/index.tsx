@@ -70,7 +70,7 @@ app.get(
 		});
 
 		await sendFile(res, fs.createReadStream(output));
-		await saveToCache(hash, fs.createReadStream(output));
+		await saveToCache(hash, await fs.promises.readFile(output));
 		await fs.promises.unlink(output);
 	})
 );

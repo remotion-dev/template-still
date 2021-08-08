@@ -34,7 +34,7 @@ export const getFromCache = async (imageHash: string): Promise<Readable> => {
 	return createReadStream(await getFileFromHash(imageHash));
 };
 
-export const saveToCache = async (imageHash: string, file: Readable) => {
+export const saveToCache = async (imageHash: string, file: Buffer) => {
 	if (CACHE_MODE === 'none') {
 		return;
 	}

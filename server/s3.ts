@@ -35,7 +35,7 @@ export const getOnS3 = async (key: string): Promise<Readable> => {
 	return obj.Body as Readable;
 };
 
-export const writeToS3 = async (key: string, read: Readable) => {
+export const writeToS3 = async (key: string, read: Buffer) => {
 	await client.send(
 		new PutObjectCommand({
 			Bucket: AWS_BUCKET_NAME,
