@@ -1,14 +1,14 @@
-# Remotion still image
+# Remotion Still Image template
+
+A template for designing still images with dynamic data with built-in server for deploying to the cloud.
 
 <p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <img src="https://github.com/remotion-dev/logo/raw/main/withtitle/element-0.png">
-  </a>
+    <img src="https://remotion-still.herokuapp.com/PreviewCard.jpeg?title=Still%20image%20generator&description=Dynamic%20images%20generation%20service%20with%20full%20design%20freedom&slogan=Powered%20by%0ARemotion">
 </p>
 
 ## Commands
 
-**Start Preview**
+**Design a still image**
 
 ```console
 npm run dev

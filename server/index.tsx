@@ -2,6 +2,7 @@ import {bundle} from '@remotion/bundler';
 import {getCompositions, renderStill} from '@remotion/renderer';
 import dotenv from 'dotenv';
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
@@ -36,6 +37,16 @@ const getComp = async (compName: string, inputProps: unknown) => {
 
 	return comp;
 };
+
+app.set('trust proxy', 1);
+
+// Not more than 20 requests per minute per user
+app.use(
+	rateLimit({
+		windowMs: 1 * 60 * 1000,
+		max: 20,
+	})
+);
 
 app.get(
 	`/:${Params.compositionname}.:${Params.format}(png|jpe?g)`,
