@@ -38,9 +38,13 @@ npm run server
 
 And then visit `http://localhost:8000/PreviewCard.png?title=Hello+World` in your browser to render an image.
 
+- Specify the ID of the composition you want to render after the `/`. You can edit the compositions in `src/Video.tsx`.
+- Add either a `.png` or a `.jpeg` extension depending on which image format you want.
+-
+
 ### Deploy to Heroku
 
-If you want to deploy this project to Heroku, you need to add the [Puppeteer Buildpack](https://github.com/jontewks/puppeteer-heroku-buildpack) first. Go to the settings of your Heroku app and under `Buildpacks`, add `https://github.com/jontewks/puppeteer-heroku-buildpack.git` as a buildpack.
+If you want to deploy this project to Heroku, you need to add the [Puppeteer Buildpack](https://github.com/jontewks/puppeteer-heroku-buildpack) first. Go to the settings of your Heroku app and under `Buildpacks`, add `https://github.com/jontewks/puppeteer-heroku-buildpack.git` as a buildpack, **then reorder the buildpacks so that the Puppeteer buildpack is first.**
 
 ## Docs
 
