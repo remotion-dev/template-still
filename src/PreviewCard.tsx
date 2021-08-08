@@ -14,7 +14,7 @@ const container: React.CSSProperties = {
 	padding: 100,
 	fontFamily,
 	// Setting this property allows you to set a linebreak via URL parameter %0A
-	whiteSpace: 'pre',
+	whiteSpace: 'pre-wrap',
 };
 
 const titleStyle: React.CSSProperties = {
