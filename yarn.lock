@@ -975,10 +975,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@remotion/bundler@2.3.0-alpha.2b14026e":
-  version "2.3.0-alpha.2b14026e"
-  resolved "https://registry.yarnpkg.com/@remotion/bundler/-/bundler-2.3.0-alpha.2b14026e.tgz#fc2ca479055bfe3c6d393a169e4e1f95f0eaa8d8"
-  integrity sha512-7/5p0Kv/l2JIbaE8ZwqMOXv3T33BC6X0gkJGqrTSPUigdce8lutYcpnMKpVHucLqPpL6psN4nkM4Vb7RonUJwQ==
+"@remotion/bundler@2.3.0-alpha.61aa2d2a":
+  version "2.3.0-alpha.61aa2d2a"
+  resolved "https://registry.yarnpkg.com/@remotion/bundler/-/bundler-2.3.0-alpha.61aa2d2a.tgz#bf0da7a7c6bbbf6cbd38d08ed026a4915fde3839"
+  integrity sha512-iR4kGQtsOiJ+GbSf1l/LbS4aX0omwNXIweRrNRPqOG0BYvQtYREtpCi0gypwK7s59vBWkrTpwmmKKudFa5fqVQ==
   dependencies:
     "@jonny/webpack-dev-middleware" "^4.1.3"
     "@webhotelier/webpack-fast-refresh" "5.1.0"
@@ -989,39 +989,39 @@
     file-loader "^6.0.0"
     latest-version "^5.1.0"
     react-refresh "^0.9.0-rc.2"
-    remotion "2.3.0-alpha.2b14026e"
+    remotion "2.3.0-alpha.61aa2d2a"
     semver "7.3.4"
     style-loader "^2.0.0"
     styled-components "^5.2.1"
     webpack "5.37.0"
     webpack-hot-middleware "^2.25.0"
 
-"@remotion/cli@2.3.0-alpha.2b14026e":
-  version "2.3.0-alpha.2b14026e"
-  resolved "https://registry.yarnpkg.com/@remotion/cli/-/cli-2.3.0-alpha.2b14026e.tgz#131261b132d74acc4a898f54af40d20ed6e24833"
-  integrity sha512-2QedmzL3vXUHLsV/cJHcmoI4Op3oxDvh4lUI2nJ+IScErnnKjrGueJinf15kX8EUhILXvIMduqz8JCMC6yD4SQ==
+"@remotion/cli@2.3.0-alpha.61aa2d2a":
+  version "2.3.0-alpha.61aa2d2a"
+  resolved "https://registry.yarnpkg.com/@remotion/cli/-/cli-2.3.0-alpha.61aa2d2a.tgz#ed26aea18a43d405c8208c6a5ca37606d67d3444"
+  integrity sha512-XiKjtqZ9y6bcJD5VCBA5t91tZnHgSfwqS0vlJ0vjAM//fXyr3ZOjB9xjjpn42rHnW06HBABw7VcQVuZLA0SI9g==
   dependencies:
-    "@remotion/bundler" "2.3.0-alpha.2b14026e"
-    "@remotion/media-utils" "2.3.0-alpha.2b14026e"
-    "@remotion/player" "2.3.0-alpha.2b14026e"
-    "@remotion/renderer" "2.3.0-alpha.2b14026e"
+    "@remotion/bundler" "2.3.0-alpha.61aa2d2a"
+    "@remotion/media-utils" "2.3.0-alpha.61aa2d2a"
+    "@remotion/player" "2.3.0-alpha.61aa2d2a"
+    "@remotion/renderer" "2.3.0-alpha.61aa2d2a"
     ansi-diff "^1.1.1"
     better-opn "^2.1.1"
     chalk "^4.1.0"
     dotenv "^9.0.0"
     execa "^4.0.2"
     minimist "^1.2.5"
-    remotion "2.3.0-alpha.2b14026e"
+    remotion "2.3.0-alpha.61aa2d2a"
     semver "^7.3.4"
     webpack "5.37.0"
     xns "^2.0.7"
 
-"@remotion/eslint-config@2.3.0-alpha.2b14026e":
-  version "2.3.0-alpha.2b14026e"
-  resolved "https://registry.yarnpkg.com/@remotion/eslint-config/-/eslint-config-2.3.0-alpha.2b14026e.tgz#bffb1b1693ee15e1fd2f0dca7f4cd70b6688e239"
-  integrity sha512-40IVGlClYVpsrJwnsgnWU5DVbR2dZiI2Fev7Pi9gctHugV+0YGPO5rLOCO3r1GIqm64Z5pI35ReFa4W/QMto2g==
+"@remotion/eslint-config@2.3.0-alpha.61aa2d2a":
+  version "2.3.0-alpha.61aa2d2a"
+  resolved "https://registry.yarnpkg.com/@remotion/eslint-config/-/eslint-config-2.3.0-alpha.61aa2d2a.tgz#896e9d2323153627d58535ebe30bdb8ed0b93065"
+  integrity sha512-ihnMdP//98Abbrt87057QkANBYgvppAYtXiajRw2MzMCSHguevqoZ2v3A8I/XHRiKLDa1oUbda0tILqapSNbMA==
   dependencies:
-    "@remotion/eslint-plugin" "2.3.0-alpha.2b14026e"
+    "@remotion/eslint-plugin" "2.3.0-alpha.61aa2d2a"
     "@typescript-eslint/eslint-plugin" "^4.22.0"
     "@typescript-eslint/parser" "^4.22.0"
     eslint-config-prettier "^8.2.0"
@@ -1031,36 +1031,36 @@
     eslint-plugin-react "^7.23.2"
     eslint-plugin-react-hooks "^4.2.0"
 
-"@remotion/eslint-plugin@2.3.0-alpha.2b14026e":
-  version "2.3.0-alpha.2b14026e"
-  resolved "https://registry.yarnpkg.com/@remotion/eslint-plugin/-/eslint-plugin-2.3.0-alpha.2b14026e.tgz#d5afdd6967adcc22602e2e818f3f0cfea7748c6f"
-  integrity sha512-CH8JS7kNWPQiJlGpu67HLbnqGtJhHLQN0PFmVvALq3YIAQZ9XbZsGmkVykf2Cx5VOxrC45d5RvWH4ZWJr8BhYQ==
+"@remotion/eslint-plugin@2.3.0-alpha.61aa2d2a":
+  version "2.3.0-alpha.61aa2d2a"
+  resolved "https://registry.yarnpkg.com/@remotion/eslint-plugin/-/eslint-plugin-2.3.0-alpha.61aa2d2a.tgz#19fda7bc0b4b04425bdfcf960947d0234ca1723c"
+  integrity sha512-khJg3vxxRZ8hMcjjLFT6BSyAklp0b80K52EvS9th9DPpGzDSOQxRn7mHlbdRbYhb73XKLbgbver6XYfqvkXZRA==
 
-"@remotion/media-utils@2.3.0-alpha.2b14026e":
-  version "2.3.0-alpha.2b14026e"
-  resolved "https://registry.yarnpkg.com/@remotion/media-utils/-/media-utils-2.3.0-alpha.2b14026e.tgz#8ba184c666b00e25727435d4aed9954ef7064324"
-  integrity sha512-wOJJUIIeilnvE7masPeg8IUMOz3k9mgHOp8WBnDgM3yZzT2jV6emQDFVWa1YbB3phn2EJJBCtL6maguMRbCSEw==
+"@remotion/media-utils@2.3.0-alpha.61aa2d2a":
+  version "2.3.0-alpha.61aa2d2a"
+  resolved "https://registry.yarnpkg.com/@remotion/media-utils/-/media-utils-2.3.0-alpha.61aa2d2a.tgz#45a5c2542e7a1a77ca877d146bc70ed763c14ebc"
+  integrity sha512-n9OW/+gmYMYeEgYo6PppmtsWBkHZ9U98aHuU2kDdKtHf5RRRGoggg1y7LyYbwbKZf8jYHI+ix28rFwn9pOCXtg==
   dependencies:
-    remotion "2.3.0-alpha.2b14026e"
+    remotion "2.3.0-alpha.61aa2d2a"
 
-"@remotion/player@2.3.0-alpha.2b14026e":
-  version "2.3.0-alpha.2b14026e"
-  resolved "https://registry.yarnpkg.com/@remotion/player/-/player-2.3.0-alpha.2b14026e.tgz#0f1fc6bd8b22b2c233ec923c138d0a16ee7ea608"
-  integrity sha512-u/MdOegKqvHL/HnDIQw3jawZd4UH0EpXtkIplGIUVTspjZDGj1gG4eviib8WmWPo2Q/2NauRnLLvjUHJHNvvwQ==
+"@remotion/player@2.3.0-alpha.61aa2d2a":
+  version "2.3.0-alpha.61aa2d2a"
+  resolved "https://registry.yarnpkg.com/@remotion/player/-/player-2.3.0-alpha.61aa2d2a.tgz#e4cc7d86bae939459c92a754ae383ddbe8624745"
+  integrity sha512-ADI9GrGKFLTmjlBaYNXJaH+QpD0xoZa3d0T5ftTYmlSbiJEFtGriF0EWfyyD5rzGyR3QkrRSNAQchJNEd2B6rg==
   dependencies:
-    remotion "2.3.0-alpha.2b14026e"
+    remotion "2.3.0-alpha.61aa2d2a"
 
-"@remotion/renderer@2.3.0-alpha.2b14026e":
-  version "2.3.0-alpha.2b14026e"
-  resolved "https://registry.yarnpkg.com/@remotion/renderer/-/renderer-2.3.0-alpha.2b14026e.tgz#86d577c5e63d09e9e22c0f1d17f348c3a1883950"
-  integrity sha512-DxgmG4VkZb4c2chn8LWKfjSEQOMgbZooxmlmL1g5AhT5PLrClwVS47fJcPDojC6ZW7A3a4OCqA7PdEG2BcxVAw==
+"@remotion/renderer@2.3.0-alpha.61aa2d2a":
+  version "2.3.0-alpha.61aa2d2a"
+  resolved "https://registry.yarnpkg.com/@remotion/renderer/-/renderer-2.3.0-alpha.61aa2d2a.tgz#64313c6c1b06b2f0113491840f97e453a749a7c0"
+  integrity sha512-O2D5KctBdL+XnkcsjFf/BmkvPv/KXHTDV4edT0rwO/wOLeuGTwP2GQkiWQVMkejUeW+weugIFyrZlS5yeRg6tg==
   dependencies:
-    "@remotion/bundler" "2.3.0-alpha.2b14026e"
+    "@remotion/bundler" "2.3.0-alpha.61aa2d2a"
     execa "^4.0.2"
     got "11.8.2"
     p-limit "^3.1.0"
     puppeteer-core "^8.0.0"
-    remotion "2.3.0-alpha.2b14026e"
+    remotion "2.3.0-alpha.61aa2d2a"
     sanitize-filename "^1.6.3"
     serve-handler "^6.1.3"
     xns "^2.0.7"
@@ -4480,10 +4480,10 @@ registry-url@^5.0.0:
   dependencies:
     rc "^1.2.8"
 
-remotion@2.3.0-alpha.2b14026e:
-  version "2.3.0-alpha.2b14026e"
-  resolved "https://registry.yarnpkg.com/remotion/-/remotion-2.3.0-alpha.2b14026e.tgz#b83c04ef220951e14f38b0c469eab5b701264f01"
-  integrity sha512-LgjQ/HlObbOo2fvGJ+/uH9I7PQlPQCO6dTGcxEaCcZuuFCQs9Ny2U3oMrSowHnNCuyB2QBrxX8X5Kc1aHsKY8w==
+remotion@2.3.0-alpha.61aa2d2a:
+  version "2.3.0-alpha.61aa2d2a"
+  resolved "https://registry.yarnpkg.com/remotion/-/remotion-2.3.0-alpha.61aa2d2a.tgz#f15666e7c235dd62e5e26b7008d93ce50b42a6f1"
+  integrity sha512-hf1f2S2DDoq+86lJC6h24KCKEJ1dz0e3ByZhIG2AvZ0/phXyW9lFQlo1zdtUB3TEwzCfcnV++ZwjFxEB3X+kww==
 
 repeat-element@^1.1.2:
   version "1.1.4"
