@@ -6,6 +6,7 @@
 		"start": "ts-node server/index.tsx",
 		"dev": "remotion preview src/index.tsx",
 		"render": "remotion still src/index.tsx PreviewCard out/still.png",
+		"heroku-postbuild": "npm run render # Rendering a video to ensure Puppeteer gets downloded",
 		"upgrade": "remotion upgrade",
 		"server": "ts-node server/index.tsx",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
