@@ -6,8 +6,6 @@
   </a>
 </p>
 
-[![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/remotion-dev/template-still/tree/main)
-
 ## Commands
 
 **Start Preview**
@@ -40,11 +38,28 @@ And then visit `http://localhost:8000/PreviewCard.png?title=Hello+World` in your
 
 - Specify the ID of the composition you want to render after the `/`. You can edit the compositions in `src/Video.tsx`.
 - Add either a `.png` or a `.jpeg` extension depending on which image format you want.
--
+- You can add input props to your React component by adding query strings: `?title=Hello+World&description=foobar` will pass `{"title": "Hello World", "description": "foo bar"}` to the component.
+
+### Caching
+
+In `server/config.ts`, you can configure three types of caching:
+
+- `"filesystem"`, the default, will cache generated images locally. This is a good way of caching if you host the server on a non-ephemereal platform and have enough storage.
+- `"none"` will disable all caching and calculate all images on the fly.
+
+- `"s3-bucket"` will cache images in a S3 bucket. If you choose this option, you need to provide `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables containing AWS credential which have permission of reading and writing to S3 as well as configure a bucket name and region in `server/config.ts`.
 
 ### Deploy to Heroku
 
-If you want to deploy this project to Heroku, you need to add the [Puppeteer Buildpack](https://github.com/jontewks/puppeteer-heroku-buildpack) first. Go to the settings of your Heroku app and under `Buildpacks`, add `https://github.com/jontewks/puppeteer-heroku-buildpack.git` as a buildpack, **then reorder the buildpacks so that the Puppeteer buildpack is first.**
+To deploy the server to Heroku, you need to add the Google Chrome Buildpack. Go to the settings of your Heroku app and in the `Buildpacks` section, add `https://github.com/heroku/heroku-buildpack-google-chrome` as a buildpack.
+
+### Deploy to DigitalOcean
+
+The easiest way to deploy to DigitalOcean is to use the dockerized image and run it on the DigitalOcean App Platform. Go to https://cloud.digitalocean.com/apps/new and connect your Github repository and deploy the
+
+### Serverless
+
+Our serverless solution is a work in progress and will be released later in 2021.
 
 ## Docs
 
