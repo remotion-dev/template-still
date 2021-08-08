@@ -1,4 +1,4 @@
-# Remotion video
+# Remotion still image
 
 <p align="center">
   <a href="https://github.com/remotion-dev/logo">
@@ -8,20 +8,18 @@
 
 [![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/remotion-dev/template-still/tree/main)
 
-Welcome to your Remotion project!
-
 ## Commands
 
 **Start Preview**
 
 ```console
-npm start
+npm run dev
 ```
 
-**Render video**
+**Render still image**
 
 ```console
-npm run build
+npm run render
 ```
 
 **Server render demo**
