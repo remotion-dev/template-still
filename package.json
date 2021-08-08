@@ -6,7 +6,6 @@
 		"start": "ts-node server/index.tsx",
 		"dev": "remotion preview src/index.tsx",
 		"render": "remotion still src/index.tsx PreviewCard out/still.png",
-		"heroku-cleanup": "npm run render # Rendering a video to ensure Puppeteer gets downloded",
 		"upgrade": "remotion upgrade",
 		"server": "ts-node server/index.tsx",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
@@ -26,7 +25,6 @@
 		"express": "^4.17.1",
 		"prettier": "2.2.1",
 		"prettier-plugin-organize-imports": "^1.1.1",
-		"puppeteer": "^10.2.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"remotion": "2.3.0-alpha.2b14026e",
