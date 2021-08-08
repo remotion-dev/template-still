@@ -3,7 +3,7 @@ import {AbsoluteFill} from 'remotion';
 import {Swirl} from './Swirl';
 
 // Apple System on MacOS, Arial on Windows, Helvetica on Heroku, Liberation on Alpine
-const fontFamily = '-apple-system, Arial, Helvetica, Liberation';
+const fontFamily = '-apple-system, Helvetica, Arial, Liberation, sans-serif';
 
 const absContainer: React.CSSProperties = {
 	backgroundColor: 'white',
