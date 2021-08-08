@@ -2,6 +2,9 @@ import React from 'react';
 import {AbsoluteFill} from 'remotion';
 import {Swirl} from './Swirl';
 
+// Apple System on MacOS, Arial on Windows, Helvetica on Heroku, Liberation on Alpine
+const fontFamily = '-apple-system, Arial, Helvetica, Liberation';
+
 const absContainer: React.CSSProperties = {
 	backgroundColor: 'white',
 };
@@ -9,7 +12,7 @@ const absContainer: React.CSSProperties = {
 const container: React.CSSProperties = {
 	flex: 1,
 	padding: 100,
-	fontFamily: '-apple-system, Arial, Liberation',
+	fontFamily,
 };
 
 const titleStyle: React.CSSProperties = {
@@ -37,7 +40,7 @@ const gradientText: React.CSSProperties = {
 	background: 'linear-gradient(to right, black, #666)',
 	WebkitBackgroundClip: 'text',
 	WebkitTextFillColor: 'transparent',
-	fontFamily: '-apple-system, Arial, Liberation',
+	fontFamily,
 };
 
 const sloganStyle: React.CSSProperties = {
