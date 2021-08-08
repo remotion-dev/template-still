@@ -8,6 +8,7 @@ export const handler = (
 			await fn(request, response);
 		} catch (err) {
 			console.log(err.stack);
+			response.set('content-type', 'application/json');
 			const statusCode = err.status || 500;
 			response.status(statusCode).json({
 				success: false,

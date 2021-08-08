@@ -40,7 +40,7 @@ And then visit `http://localhost:8000/PreviewCard.png?title=Hello+World` in your
 
 ### Deploy to Heroku
 
-You can deploy a server that
+If you want to deploy this project to Heroku, you need to add the [Puppeteer Buildpack](https://github.com/jontewks/puppeteer-heroku-buildpack) first. Go to the settings of your Heroku app and under `Buildpacks`, add `https://github.com/jontewks/puppeteer-heroku-buildpack.git` as a buildpack.
 
 ## Docs
 
