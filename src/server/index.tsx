@@ -8,6 +8,7 @@ import os from 'os';
 import path from 'path';
 import {getFromCache, isInCache, saveToCache} from './cache';
 import {handler} from './handler';
+import {helpText} from './help-text';
 import {getImageType, getMimeType} from './image-types';
 import {getImageHash} from './make-hash';
 import {sendFile} from './send-file';
@@ -17,7 +18,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
 
-const webpackBundle = bundle(path.join(__dirname, '../src/index.tsx'));
+const webpackBundle = bundle(path.join(process.cwd(), 'src/index.tsx'));
 const tmpDir = fs.promises.mkdtemp(path.join(os.tmpdir(), 'remotion-'));
 
 enum Params {
@@ -87,3 +88,4 @@ app.get(
 );
 
 app.listen(port);
+console.log(helpText(Number(port)));
