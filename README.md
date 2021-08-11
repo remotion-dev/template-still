@@ -8,19 +8,19 @@ A template for designing still images with dynamic data with built-in server for
 
 ## Commands
 
-**Design a still image**
+**Design mode: Create an image in React**
 
 ```console
 npm run dev
 ```
 
-**Render still image**
+**Render it**
 
 ```console
 npm run render
 ```
 
-**Upgrade Remotion**
+**Keep Remotion up to date**
 
 ```console
 npm run upgrade
@@ -47,7 +47,24 @@ In `server/config.ts`, you can configure three types of caching:
 - `"filesystem"`, the default, will cache generated images locally. This is a good way of caching if you host the server on a non-ephemereal platform and have enough storage.
 - `"none"` will disable all caching and calculate all images on the fly.
 
-- `"s3-bucket"` will cache images in a S3 bucket. If you choose this option, you need to provide `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables containing AWS credential which have permission of reading and writing to S3 as well as configure a bucket name and region in `server/config.ts`.
+- `"s3-bucket"` will cache images in a S3 bucket. If you choose this option, you need to provide `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables containing AWS credentials which have permission of reading and writing to S3 as well as configure a bucket name and region in `server/config.ts`.
+
+<details>
+<summary>How to set up an S3 bucket</summary>
+<ul>
+<li>Go to https://s3.console.aws.amazon.com/s3/home and create a new bucket. You can leave the "Deny all public access" checkbox checked.
+</li>
+<li>
+Fill out region and bucket name in <code>server/config.ts</code>.
+</li>
+<li>
+Go to https://console.aws.amazon.com/iamv2/home?#/users to create a new user. While creating, enable "Programmatic Access". When adding permissions, choose "Attach existing policies directly" and then search for "AmazonS3FullAccess" and assign it.
+</li>
+<li>
+In the last step you will get a value for <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code> which you need to set as an environment variable. Locally, you can rename the <code>.env.example</code> file to <code>.env</code>. When you deploy the server, you can set the environment variables in the dashboard of your provider.
+</li>
+</ul>
+</details>
 
 ### Deploy to Heroku
 
@@ -64,6 +81,10 @@ Our serverless solution is a work in progress and will be released later in 2021
 ## Docs
 
 Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
+
+## Help
+
+We provide help [on our Discord server](https://discord.gg/6VzzNDwUwV).
 
 ## Issues
 
