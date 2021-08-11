@@ -42,12 +42,12 @@ And then visit `http://localhost:8000/PreviewCard.png?title=Hello+World` in your
 
 ### Caching
 
-In `server/config.ts`, you can configure three types of caching:
+In `src/server/config.ts`, you can configure three types of caching:
 
 - `"filesystem"`, the default, will cache generated images locally. This is a good way of caching if you host the server on a non-ephemereal platform and have enough storage.
 - `"none"` will disable all caching and calculate all images on the fly.
 
-- `"s3-bucket"` will cache images in a S3 bucket. If you choose this option, you need to provide `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables containing AWS credentials which have permission of reading and writing to S3 as well as configure a bucket name and region in `server/config.ts`.
+- `"s3-bucket"` will cache images in a S3 bucket. If you choose this option, you need to provide `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables containing AWS credentials which have permission of reading and writing to S3 as well as configure a bucket name and region in `src/server/config.ts`.
 
 <details>
 <summary>How to set up an S3 bucket</summary>
@@ -55,7 +55,7 @@ In `server/config.ts`, you can configure three types of caching:
 <li>Go to https://s3.console.aws.amazon.com/s3/home and create a new bucket. You can leave the "Deny all public access" checkbox checked.
 </li>
 <li>
-Fill out region and bucket name in <code>server/config.ts</code>.
+Fill out region and bucket name in <code>src/server/config.ts</code>.
 </li>
 <li>
 Go to https://console.aws.amazon.com/iamv2/home?#/users to create a new user. While creating, enable "Programmatic Access". When adding permissions, choose "Attach existing policies directly" and then search for "AmazonS3FullAccess" and assign it.

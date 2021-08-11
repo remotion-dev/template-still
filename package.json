@@ -3,11 +3,11 @@
 	"version": "1.0.0",
 	"description": "My Remotion video",
 	"scripts": {
-		"start": "ts-node server/index.tsx",
+		"start": "ts-node src/server/index.tsx",
 		"dev": "remotion preview src/index.tsx",
 		"render": "remotion still src/index.tsx PreviewCard out/still.png",
 		"upgrade": "remotion upgrade",
-		"server": "ts-node server/index.tsx",
+		"server": "ts-node src/server/index.tsx",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
 	},
 	"repository": {},
