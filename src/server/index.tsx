@@ -39,6 +39,7 @@ const getComp = async (compName: string, inputProps: unknown) => {
 	return comp;
 };
 
+// This setting will reveal the real IP address of the user, so we can apply rate limiting.
 app.set('trust proxy', 1);
 
 // Not more than 20 requests per minute per user
@@ -49,6 +50,8 @@ app.use(
 	})
 );
 
+// The image is rendered when /[CompositionName].[imageformat] is called.
+// Props are passed via query string.
 app.get(
 	`/:${Params.compositionname}.:${Params.format}(png|jpe?g)`,
 	handler(async (req, res) => {
@@ -58,6 +61,8 @@ app.get(
 
 		res.set('content-type', getMimeType(imageFormat));
 
+		// Calculate a unique identifier for our image,
+		// if it exists, return it from cache
 		const hash = getImageHash(
 			JSON.stringify({
 				compName,

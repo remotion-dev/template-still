@@ -7,6 +7,13 @@ import {existsOnS3, getOnS3, writeToS3} from './s3';
 
 const cacheDir = fs.promises.mkdtemp(path.join(os.tmpdir(), 'remotion-'));
 
+/**
+ * There are three ways of caching.
+ - `"filesystem"`, the default, will cache generated images locally. This is a good way of caching if you host the server on a non-ephemereal platform and have enough storage.
+	- `"none"` will disable all caching and calculate all images on the fly.
+	- `"s3-bucket"` will cache images in a S3 bucket. If you choose this option, you need to provide `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables containing AWS credentials which have permission of reading and writing to S3 as well as configure a bucket name and region in `src/server/config.ts`. See README on how to configure it.
+ */
+
 const getFileFromHash = async (imageHash: string) => {
 	return path.join(await cacheDir, imageHash);
 };
