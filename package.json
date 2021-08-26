@@ -1,7 +1,7 @@
 {
-	"name": "remotion-template",
+	"name": "remotion-template-still",
 	"version": "1.0.0",
-	"description": "My Remotion video",
+	"description": "A template for designing still images with dynamic data with built-in server for deploying to the cloud.",
 	"scripts": {
 		"start": "ts-node src/server/index.tsx",
 		"dev": "remotion preview src/index.tsx",
@@ -27,7 +27,6 @@
 		"express-rate-limit": "^5.3.0",
 		"p-limit": "^3.1.0",
 		"prettier": "2.2.1",
-		"prettier-plugin-organize-imports": "^1.1.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"remotion": "^2.3.0",
