@@ -84,6 +84,9 @@ app.get(
 			output,
 			inputProps,
 			imageFormat,
+			onError: (err) => {
+				console.log('Error occurred in page:', err);
+			},
 		});
 
 		await sendFile(res, fs.createReadStream(output));
