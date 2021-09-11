@@ -18,7 +18,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
 
-const webpackBundle = bundle(path.join(process.cwd(), 'src/index.tsx'));
+const webpackBundling = bundle(path.join(process.cwd(), 'src/index.tsx'));
 const tmpDir = fs.promises.mkdtemp(path.join(os.tmpdir(), 'remotion-'));
 
 enum Params {
@@ -27,7 +27,7 @@ enum Params {
 }
 
 const getComp = async (compName: string, inputProps: unknown) => {
-	const comps = await getCompositions(await webpackBundle, {
+	const comps = await getCompositions(await webpackBundling, {
 		inputProps: inputProps as null,
 	});
 
@@ -78,15 +78,21 @@ app.get(
 
 		const output = path.join(await tmpDir, hash);
 
-		await renderStill({
-			composition: await getComp(compName, inputProps),
-			webpackBundle: await webpackBundle,
-			output,
-			inputProps,
-			imageFormat,
-			onError: (err) => {
-				console.log('Error occurred in page:', err);
-			},
+		const webpackBundle = await webpackBundling;
+		const composition = await getComp(compName, inputProps);
+		await new Promise<void>((resolve, reject) => {
+			renderStill({
+				composition,
+				webpackBundle,
+				output,
+				inputProps,
+				imageFormat,
+				onError: (err) => {
+					reject(err);
+				},
+			})
+				.then((res) => resolve(res))
+				.catch((err) => reject(err));
 		});
 
 		await sendFile(res, fs.createReadStream(output));
