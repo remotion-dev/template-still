@@ -9,7 +9,7 @@ on:
       description:
         description: "Which subtitle should it be?"
         required: true
-        default: "black"
+        default: "Enter your subtitle here!"
 jobs:
   render:
     name: Render still
