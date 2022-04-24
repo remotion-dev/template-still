@@ -80,19 +80,12 @@ app.get(
 
 		const webpackBundle = await webpackBundling;
 		const composition = await getComp(compName, inputProps);
-		await new Promise<void>((resolve, reject) => {
-			renderStill({
-				composition,
-				webpackBundle,
-				output,
-				inputProps,
-				imageFormat,
-				onError: (err) => {
-					reject(err);
-				},
-			})
-				.then((res) => resolve(res))
-				.catch((err) => reject(err));
+		await renderStill({
+			composition,
+			serveUrl: webpackBundle,
+			output,
+			inputProps,
+			imageFormat,
 		});
 
 		await sendFile(res, fs.createReadStream(output));
