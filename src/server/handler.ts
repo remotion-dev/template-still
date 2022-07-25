@@ -13,7 +13,7 @@ export const handler = (
 		} catch (err) {
 			console.log((err as Error).stack);
 			response.set('content-type', 'application/json');
-			const statusCode = (err as {status:number}).status || 500;
+			const statusCode = (err as {status: number}).status || 500;
 			response.status(statusCode).json({
 				success: false,
 				error: (err as Error).message,
