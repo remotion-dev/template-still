@@ -12,7 +12,7 @@ export const RemotionVideo: React.FC = () => {
 				defaultProps={{
 					title: 'Welcome to Remotion',
 					description: 'Edit Video.tsx to change template',
-					slogan: 'Write videos\nin React',
+					slogan: 'Make videos\nprogrammatically',
 				}}
 			/>
 		</>
