@@ -18,7 +18,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
 
-const webpackBundling = bundle(path.join(process.cwd(), 'src/index.tsx'));
+const webpackBundling = bundle(path.join(process.cwd(), 'src/index.ts'));
 const tmpDir = fs.promises.mkdtemp(path.join(os.tmpdir(), 'remotion-'));
 
 enum Params {

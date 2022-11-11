@@ -1,7 +1,7 @@
 import {Still} from 'remotion';
 import {PreviewCard} from './PreviewCard';
 
-export const RemotionVideo: React.FC = () => {
+export const RemotionRoot: React.FC = () => {
 	return (
 		<>
 			<Still
