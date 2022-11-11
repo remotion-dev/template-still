@@ -23,7 +23,7 @@ jobs:
       - run: echo $WORKFLOW_INPUT > input-props.json
         env:
           WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
-      - run: npm run render -- --props="./input-props.json"
+      - run: npm run build -- --props="./input-props.json"
       - uses: actions/upload-artifact@v2
         with:
           name: still.png

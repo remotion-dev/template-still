@@ -17,7 +17,7 @@ npm run dev
 **Render it**
 
 ```console
-npm run render
+npm run build
 ```
 
 **Keep Remotion up to date**
