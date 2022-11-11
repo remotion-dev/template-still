@@ -5,7 +5,7 @@
 	"scripts": {
 		"start": "tsc && node dist/server/index.js",
 		"dev": "remotion preview",
-		"build": "remotion still PreviewCard out/still.png",
+		"render": "remotion still PreviewCard out/still.png",
 		"upgrade": "remotion upgrade",
 		"server": "ts-node src/server/index.ts",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
