@@ -3,7 +3,8 @@
 	"version": "1.0.0",
 	"description": "A template for designing still images with dynamic data with built-in server for deploying to the cloud.",
 	"scripts": {
-		"start": "tsc && node dist/server/index.js",
+		"start": "node dist/server/index.js",
+		"build": "tsc",
 		"dev": "remotion preview",
 		"render": "remotion still PreviewCard out/still.png",
 		"upgrade": "remotion upgrade",
