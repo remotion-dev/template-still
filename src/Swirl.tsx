@@ -1,10 +1,5 @@
 import {useEffect, useRef} from 'react';
-import {
-	interpolate,
-	interpolateColors,
-	useCurrentFrame,
-	useVideoConfig,
-} from 'remotion';
+import {interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 
 const COLOR = '#0B84F3';
 
