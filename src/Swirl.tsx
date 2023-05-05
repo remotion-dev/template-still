@@ -1,8 +1,6 @@
 import {useEffect, useRef} from 'react';
 import {interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 
-const COLOR = '#0B84F3';
-
 function point({
 	x,
 	y,
@@ -23,7 +21,9 @@ function point({
 	canvas.closePath();
 }
 
-export const Swirl: React.FC = () => {
+export const Swirl: React.FC<{
+	color: string;
+}> = ({color}) => {
 	const ref = useRef<HTMLCanvasElement>(null);
 	const frame = useCurrentFrame();
 	const {width, height} = useVideoConfig();
@@ -45,7 +45,7 @@ export const Swirl: React.FC = () => {
 				x: i,
 				y: height - 90 + yOffset,
 				canvas: ctx,
-				color: COLOR,
+				color,
 				thickness: 8,
 			});
 		}
