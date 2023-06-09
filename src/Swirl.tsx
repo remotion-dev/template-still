@@ -49,7 +49,7 @@ export const Swirl: React.FC<{
 				thickness: 8,
 			});
 		}
-	}, [frame, height, width]);
+	}, [color, frame, height, width]);
 
 	return (
 		<canvas ref={ref} style={{width, height}} width={width} height={height} />
