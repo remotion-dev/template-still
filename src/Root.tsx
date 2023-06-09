@@ -14,7 +14,6 @@ export const RemotionRoot: React.FC = () => {
 				defaultProps={{
 					title: 'Welcome to Remotion' as const,
 					description: 'Edit Video.tsx to change template' as const,
-					slogan: 'Make videos\nprogrammatically' as const,
 					color: '#0B84F3' as const,
 				}}
 			/>

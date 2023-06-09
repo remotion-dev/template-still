@@ -61,14 +61,12 @@ const sloganStyle: React.CSSProperties = {
 export const myCompSchema = z.object({
 	title: z.string(),
 	description: z.string(),
-	slogan: z.string(),
 	color: zColor(),
 });
 
 export const PreviewCard: React.FC<z.infer<typeof myCompSchema>> = ({
 	title,
 	description,
-	slogan,
 	color,
 }) => {
 	return (
@@ -79,7 +77,11 @@ export const PreviewCard: React.FC<z.infer<typeof myCompSchema>> = ({
 						<span style={gradientText}>{title}</span>
 					</div>
 					<p style={descriptionStyle}>{description}</p>
-					<div style={sloganStyle}>{slogan}</div>
+					<div style={sloganStyle}>
+						Make videos
+						<br />
+						programmatically
+					</div>
 				</div>
 			</AbsoluteFill>
 			<AbsoluteFill>
