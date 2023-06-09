@@ -28,7 +28,7 @@ enum Params {
 
 const getComp = async (compName: string, inputProps: unknown) => {
 	const comps = await getCompositions(await webpackBundling, {
-		inputProps: inputProps as object,
+		inputProps: inputProps as Record<string, unknown>,
 	});
 
 	const comp = comps.find((c) => c.id === compName);
