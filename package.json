@@ -5,7 +5,7 @@
 	"scripts": {
 		"start": "node dist/server/index.js",
 		"build": "tsc",
-		"dev": "remotion preview",
+		"dev": "remotion studio",
 		"render": "remotion still PreviewCard out/still.png",
 		"upgrade": "remotion upgrade",
 		"server": "ts-node src/server/index.ts",
