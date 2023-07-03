@@ -2,6 +2,8 @@ import React from 'react';
 import {AbsoluteFill} from 'remotion';
 import './fonts.css';
 import {Swirl} from './Swirl';
+import {z} from 'zod';
+import {zColor} from '@remotion/zod-types';
 
 const fontFamily = 'Inter';
 
@@ -56,11 +58,17 @@ const sloganStyle: React.CSSProperties = {
 	whiteSpace: 'pre',
 };
 
-export const PreviewCard: React.FC<{
-	title: string;
-	description: string;
-	slogan: string;
-}> = ({title, description, slogan}) => {
+export const myCompSchema = z.object({
+	title: z.string(),
+	description: z.string(),
+	color: zColor(),
+});
+
+export const PreviewCard: React.FC<z.infer<typeof myCompSchema>> = ({
+	title,
+	description,
+	color,
+}) => {
 	return (
 		<AbsoluteFill style={absContainer}>
 			<AbsoluteFill>
@@ -69,11 +77,15 @@ export const PreviewCard: React.FC<{
 						<span style={gradientText}>{title}</span>
 					</div>
 					<p style={descriptionStyle}>{description}</p>
-					<div style={sloganStyle}>{slogan}</div>
+					<div style={sloganStyle}>
+						Make videos
+						<br />
+						programmatically
+					</div>
 				</div>
 			</AbsoluteFill>
 			<AbsoluteFill>
-				<Swirl />
+				<Swirl color={color} />
 			</AbsoluteFill>
 		</AbsoluteFill>
 	);

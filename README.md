@@ -84,7 +84,7 @@ Get started with Remotion by reading the [fundamentals page](https://www.remotio
 
 ## Help
 
-We provide help [on our Discord server](https://discord.gg/6VzzNDwUwV).
+We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
 
 ## Issues
 
@@ -92,4 +92,4 @@ Found an issue with Remotion? [File an issue here](https://github.com/remotion-d
 
 ## License
 
-Notice that for some entities a company license is needed. Read [the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
