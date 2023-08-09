@@ -1,5 +1,9 @@
 import {bundle} from '@remotion/bundler';
-import {getCompositions, renderStill} from '@remotion/renderer';
+import {
+	getCompositions,
+	renderStill,
+	selectComposition,
+} from '@remotion/renderer';
 import dotenv from 'dotenv';
 import express from 'express';
 import rateLimit from 'express-rate-limit';
@@ -25,22 +29,6 @@ enum Params {
 	compositionname,
 	format,
 }
-
-const getComp = async (
-	compName: string,
-	inputProps: Record<string, unknown>
-) => {
-	const comps = await getCompositions(await webpackBundling, {
-		inputProps,
-	});
-
-	const comp = comps.find((c) => c.id === compName);
-	if (!comp) {
-		throw new Error(`No composition called ${compName}`);
-	}
-
-	return comp;
-};
 
 // This setting will reveal the real IP address of the user, so we can apply rate limiting.
 app.set('trust proxy', 1);
@@ -82,7 +70,11 @@ app.get(
 		const output = path.join(await tmpDir, hash);
 
 		const webpackBundle = await webpackBundling;
-		const composition = await getComp(compName, inputProps);
+		const composition = await selectComposition({
+			id: compName,
+			inputProps,
+			serveUrl: webpackBundle,
+		});
 		await renderStill({
 			composition,
 			serveUrl: webpackBundle,
