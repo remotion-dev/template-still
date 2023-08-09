@@ -1,9 +1,5 @@
 import {bundle} from '@remotion/bundler';
-import {
-	getCompositions,
-	renderStill,
-	selectComposition,
-} from '@remotion/renderer';
+import {renderStill, selectComposition} from '@remotion/renderer';
 import dotenv from 'dotenv';
 import express from 'express';
 import rateLimit from 'express-rate-limit';
