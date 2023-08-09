@@ -76,7 +76,7 @@ The easiest way to deploy to DigitalOcean is to use the dockerized image and run
 
 ### Serverless
 
-Our serverless solution is a work in progress and will be released later in 2021.
+Use [Remotion Lambda](https://remotion.dev/lambda) if you want to render stills inside a Lambda function.
 
 ## Docs
 
