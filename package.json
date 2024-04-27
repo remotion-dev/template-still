@@ -8,7 +8,7 @@
 		"dev": "remotion studio",
 		"render": "remotion still PreviewCard out/still.png",
 		"upgrade": "remotion upgrade",
-		"server": "ts-node src/server/index.ts",
+		"server": "bun src/server/index.ts",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
 	},
 	"repository": {},
@@ -36,8 +36,8 @@
 	"devDependencies": {
 		"@remotion/eslint-config": "^4.0.0",
 		"eslint": "^8.43.0",
-		"prettier": "^2.8.8",
-		"ts-node": "^10.8.1",
-		"typescript": "^4.9.4"
+		"prettier": "^3.2.5",
+		"bun": "1.1.5",
+		"typescript": "^5.4.5"
 	}
 }
