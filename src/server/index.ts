@@ -1,5 +1,9 @@
 import { bundle } from "@remotion/bundler";
-import { renderStill, selectComposition } from "@remotion/renderer";
+import {
+  ensureBrowser,
+  renderStill,
+  selectComposition,
+} from "@remotion/renderer";
 import dotenv from "dotenv";
 import express from "express";
 import rateLimit from "express-rate-limit";
@@ -85,5 +89,7 @@ app.get(
   }),
 );
 
-app.listen(port);
-console.log(helpText(Number(port)));
+ensureBrowser().then(() => {
+  app.listen(port);
+  console.log(helpText(Number(port)));
+});

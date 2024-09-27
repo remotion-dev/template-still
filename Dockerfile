@@ -1,22 +1,21 @@
 # This is a dockerized version of a server that you can easily deploy somewhere.
 # If you don't want server rendering, you can safely delete this file.
 
-FROM node:alpine
+FROM node:20-bookworm
 
-# Installs latest Chromium (85) package.
-RUN apk add --no-cache \
-  chromium \
-  nss \
-  freetype \
-  freetype-dev \
-  harfbuzz \
-  ca-certificates \
-  ttf-freefont \
-  font-noto-emoji
-
-# Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-  PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+RUN apt install -y \
+  libnss3 \
+  libdbus-1-3 \
+  libatk1.0-0 \
+  libgbm-dev \
+  libasound2 \
+  libxrandr2 \
+  libxkbcommon-dev \
+  libxfixes3 \
+  libxcomposite1 \
+  libxdamage1 \
+  libatk-bridge2.0-0 \
+  libcups2
 
 RUN mkdir app
 COPY . ./app
@@ -25,11 +24,6 @@ WORKDIR /app
 
 RUN npm i
 
-# Add user so we don't need --no-sandbox.
-RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
-  && mkdir -p /home/pptruser/Downloads /app \
-  && chown -R pptruser:pptruser /home/pptruser \
-  && chown -R pptruser:pptruser /app
 # Run everything after as non-privileged user.
 USER pptruser
 
